@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles/defaultStyle.css" lang="en" type="text/css">
+
+        <script type="module" src="js/webLoader.js"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <div id="right-side" class="right-side">
+                <div id="song-name" class="song-info"></div>
+                <div id="song-author" class="song-info"></div>
+                <div id="song-text" class="song-info"></div>
+            </div>
+
+            <div id="menu" class="menu">
+                <div class="inner-menu">
+                    <img src="resources/menuIcon.webp" alt="Menu button image" class="main-menu-icon" id="main-menu-btn">
+                    <header id="header">
+                        <h2 class="site-name">Zpěvník</h2>
+                    </header>
+    
+                    <div id="filter-container"> 
+                        <form>
+                            <fieldset>
+                                <legend>Filtrování</legend>
+                                <label for="author-input">Autors</label>
+                                <input type="text" id="author-input" list="possible_authors" autocomplete="off">
+                                <button id="autor-clear">X</button>
+                        
+                                <label for="song-input">Písně</label>
+                                <input type="text" id="song-input">
+                                <button id="song-clear">X</button>
+                            </fieldset>
+                            <datalist id="possible_authors"> </datalist>
+                        </form>
+                    </div>
+    
+                    <div id="song-list-div"> 
+                        <select id="song-list" name="songs" multiple="false"></select>
+                    </div>
+
+                    <div>
+                        Nalezli jste chybu? Napište
+                        <a href="mailto:zpevnik@arcusvault.synology.me">zpevnik@arcusvault.synology.me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </body>
+</html>

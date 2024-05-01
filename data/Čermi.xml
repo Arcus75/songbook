@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<InetSongDb>
+	<song>
+		<ID><![CDATA[1. Signální]]></ID>
+		<MIRAF_ID>006017988_2023_04_05_19_53_38_610</MIRAF_ID>
+		<MIRAF_SEZNAM><![CDATA[Chinaski]]></MIRAF_SEZNAM>
+		<MIRAF_POZNAMKA><![CDATA[]]></MIRAF_POZNAMKA>
+		<MIRAF_MP3_FILE><![CDATA[]]></MIRAF_MP3_FILE>
+		<MIRAF_FILE><![CDATA[]]></MIRAF_FILE>
+		<MIRAF_TEMPO><![CDATA[100]]></MIRAF_TEMPO>
+		<MIRAF_CAPO><![CDATA[0]]></MIRAF_CAPO>
+		<MIRAF_TONINA><![CDATA[]]></MIRAF_TONINA>
+		<MIRAF_HODNOCENI><![CDATA[0]]></MIRAF_HODNOCENI>
+		<MIRAF_MYCOL1><![CDATA[]]></MIRAF_MYCOL1>
+		<MIRAF_MYCOL2><![CDATA[]]></MIRAF_MYCOL2>
+		<MIRAF_MYCOL3><![CDATA[]]></MIRAF_MYCOL3>
+		<MIRAF_MYCOL4><![CDATA[0]]></MIRAF_MYCOL4>
+		<MIRAF_MYCOL5><![CDATA[]]></MIRAF_MYCOL5>
+		<MIRAF_KARAOKE><![CDATA[]]></MIRAF_KARAOKE>
+		<MIRAF_NASTAVENI><![CDATA[MIDIDefaultPitch=0|MIDIDefaultTempo=100|MIDIActiveBox1=0|MIDIActiveBox2=0|MIDIActiveBox3=0|MIDIActiveBox4=0|MIDIActiveBox5=0|MIDIActiveBox6=0|MIDIActiveBox7=0|MIDIActiveBox8=0|MIDIActiveBox9=0|MIDIActiveBox10=0|MIDITypeBox1=-1|MIDITypeBox2=-1|MIDITypeBox3=-1|MIDITypeBox4=-1|MIDITypeBox5=-1|MIDITypeBox6=-1|MIDITypeBox7=-1|MIDITypeBox8=-1|MIDITypeBox9=-1|MIDITypeBox10=-1|MIDICannelBox1=0|MIDICannelBox2=0|MIDICannelBox3=0|MIDICannelBox4=0|MIDICannelBox5=0|MIDICannelBox6=0|MIDICannelBox7=0|MIDICannelBox8=0|MIDICannelBox9=0|MIDICannelBox10=0|MIDIData1Box1=0|MIDIData1Box2=0|MIDIData1Box3=0|MIDIData1Box4=0|MIDIData1Box5=0|MIDIData1Box6=0|MIDIData1Box7=0|MIDIData1Box8=0|MIDIData1Box9=0|MIDIData1Box10=0|MIDIData2Box1=0|MIDIData2Box2=0|MIDIData2Box3=0|MIDIData2Box4=0|MIDIData2Box5=0|MIDIData2Box6=0|MIDIData2Box7=0|MIDIData2Box8=0|MIDIData2Box9=0|MIDIData2Box10=0|MIDIDelay=0|ScrollOdskok=1|DobaZobrazeni=180|PreskakovaniPrepinac1=0|PreskakovaniPrepinac2=0|PreskakovaniPrepinac3=0|PreskakovaniPrepinac4=0|PreskakovaniPrepinac5=0|PreskakovaniPrepinac6=0|ParameterProSouborHide=0|AutoStrolByTime=0|PreferovanaTranspozice=0|VlastniOdlozenyStart=0]]></MIRAF_NASTAVENI>
+		<MIRAF_NEW><![CDATA[New]]></MIRAF_NEW>
+		<MIRAF_MIDI_FILE><![CDATA[]]></MIRAF_MIDI_FILE>
+		<lang></lang>
+		<songtext><![CDATA[
+<Label:1> [Emi]Až si [G]zejtra ráno ř[C]eknu zase j[Emi]ednou provždy dost,
+[G]právem se mi [C]budeš tiše [Emi]smát.  
+[Emi]Jak [G]omluvit si [C]svoji slabost, [Emi]nenávist a zlost,
+když [G]za všechno si [C]můžu vlastně [Emi]sám.
+
+<Label>Ref</Label> Za [Ami]spoustu dní, možná za [C]spoustu let,
+až se mi [G]rozední, budu ti [D]vyprávět,
+na první [Ami]signální, jak jsem [C]vobletěl svět,  
+jak tě to [G]vomámí a [D]nepustí zpět.
+Jaký si to [F]uděláš - [B]takový to [Dmi]máš,
+jaký si to [F]uděláš - [B]takový to [Dmi]máš.
+       
+<Label>2</Label> [Emi]Až se [G]dneska večer [C]budu tvářit [Emi]zas jak Karel Gott,
+[G]budu zpívat [C]vampam - tyda[Emi]pam. 
+[Emi]Všechna [G]sláva, polní [C]tráva, ale [Emi]peníz přijde vhod,
+[G]jak jsem si to [C]udělal, tak to [Emi]mám.
+
+<Label>Ref</Label> 2x
+ 
+
+]]></songtext>
+		<author><![CDATA[Chinaski]]></author>
+		<authorId><![CDATA[Chinaski]]></authorId>
+		<groupname><![CDATA[Chinaski]]></groupname>
+		<title><![CDATA[1. Signální]]></title>
+	</song>
+	<song>
+		<ID><![CDATA[500 mil]]></ID>
+		<MIRAF_ID>009688503_2023_04_05_20_06_24_264</MIRAF_ID>
+		<MIRAF_SEZNAM><![CDATA[0]]></MIRAF_SEZNAM>
+		<MIRAF_POZNAMKA><![CDATA[]]></MIRAF_POZNAMKA>
+		<MIRAF_MP3_FILE><![CDATA[]]></MIRAF_MP3_FILE>
+		<MIRAF_FILE><![CDATA[]]></MIRAF_FILE>
+		<MIRAF_TEMPO><![CDATA[100]]></MIRAF_TEMPO>
+		<MIRAF_CAPO><![CDATA[0]]></MIRAF_CAPO>
+		<MIRAF_TONINA><![CDATA[]]></MIRAF_TONINA>
+		<MIRAF_HODNOCENI><![CDATA[0]]></MIRAF_HODNOCENI>
+		<MIRAF_MYCOL1><![CDATA[]]></MIRAF_MYCOL1>
+		<MIRAF_MYCOL2><![CDATA[]]></MIRAF_MYCOL2>
+		<MIRAF_MYCOL3><![CDATA[]]></MIRAF_MYCOL3>
+		<MIRAF_MYCOL4><![CDATA[0]]></MIRAF_MYCOL4>
+		<MIRAF_MYCOL5><![CDATA[]]></MIRAF_MYCOL5>
+		<MIRAF_KARAOKE><![CDATA[]]></MIRAF_KARAOKE>
+		<MIRAF_NASTAVENI><![CDATA[MIDIDefaultPitch=0|MIDIDefaultTempo=100|MIDIActiveBox1=0|MIDIActiveBox2=0|MIDIActiveBox3=0|MIDIActiveBox4=0|MIDIActiveBox5=0|MIDIActiveBox6=0|MIDIActiveBox7=0|MIDIActiveBox8=0|MIDIActiveBox9=0|MIDIActiveBox10=0|MIDITypeBox1=-1|MIDITypeBox2=-1|MIDITypeBox3=-1|MIDITypeBox4=-1|MIDITypeBox5=-1|MIDITypeBox6=-1|MIDITypeBox7=-1|MIDITypeBox8=-1|MIDITypeBox9=-1|MIDITypeBox10=-1|MIDICannelBox1=0|MIDICannelBox2=0|MIDICannelBox3=0|MIDICannelBox4=0|MIDICannelBox5=0|MIDICannelBox6=0|MIDICannelBox7=0|MIDICannelBox8=0|MIDICannelBox9=0|MIDICannelBox10=0|MIDIData1Box1=0|MIDIData1Box2=0|MIDIData1Box3=0|MIDIData1Box4=0|MIDIData1Box5=0|MIDIData1Box6=0|MIDIData1Box7=0|MIDIData1Box8=0|MIDIData1Box9=0|MIDIData1Box10=0|MIDIData2Box1=0|MIDIData2Box2=0|MIDIData2Box3=0|MIDIData2Box4=0|MIDIData2Box5=0|MIDIData2Box6=0|MIDIData2Box7=0|MIDIData2Box8=0|MIDIData2Box9=0|MIDIData2Box10=0|MIDIDelay=0|ScrollOdskok=1|DobaZobrazeni=180|PreskakovaniPrepinac1=0|PreskakovaniPrepinac2=0|PreskakovaniPrepinac3=0|PreskakovaniPrepinac4=0|PreskakovaniPrepinac5=0|PreskakovaniPrepinac6=0|ParameterProSouborHide=0|AutoStrolByTime=0|PreferovanaTranspozice=0|VlastniOdlozenyStart=0]]></MIRAF_NASTAVENI>
+		<MIRAF_NEW><![CDATA[New]]></MIRAF_NEW>
+		<MIRAF_MIDI_FILE><![CDATA[]]></MIRAF_MIDI_FILE>
+		<lang></lang>
+		<songtext><![CDATA[<Label>1</Label> Plakat [C]budeš, dívko [Ami]má, že ode[Dmi]šel jsem z dom[F]ova,
+že odeš[Dmi]el jsem z d[G7]omova snad stovk[C]y mil[G7],
+stovky m[C]il, stovky m[Ami]il, stovky m[Dmi]il, stovky m[F]il,
+že ode[Dmi]šel jsem z domo[G7]va snad stovky [C]mil[G7].
+
+<Label>2</Label> Čas, te[C]n lásce ublížil[Ami], vzdáleni j[Dmi]sme pětset [F]mil,
+srdce [Dmi]mý teď proží[G7]vá moc těžkých [C]chvi[G7]l,
+těžkých[C] chvil, těžký[Ami]ch chvil, tě[Dmi]žkých chvil, těžk[F]ých chvil,
+srdce [Dmi]mý teď proží[G7]vá moc těžkých [C]chvi[G7]l.
+
+<Label>3</Label> Celou [C]noc teď přemí[Ami]tám, že jsem [Dmi]zůstal sám a [F]sám,
+lav[Dmi]ici teď nádraž[G7]ní za lože [C]mám[G7],
+za lože [C]mám, za lože [Ami]mám, za lože [Dmi]mám, za lože [F]mám,
+lav[Dmi]ici teď nádra[G7]žní za lože [C]mám[G7].
+
+<Label>4</Label> Cestu [C]zpátky dobře [Ami]znám, ale [Dmi]kapsu prázdnou [F]mám,
+tak v tý [Dmi]dálce dale[G7]ký zůstanu [C]sám[G7],
+zůstanu [C]sám, zůstanu [Ami]sám, zůstanu [Dmi]sám, zůstanu [F]sám, 
+tak v tý [Dmi]dálce dale[G7]ký zůstanu [C]sám ...  
+tak v tý [Dmi]dálce dale[G7]ký [F]zůstanu [C]sám ...
+]]></songtext>
+		<author><![CDATA[0]]></author>
+		<authorId><![CDATA[0]]></authorId>
+		<groupname><![CDATA[0]]></groupname>
+		<title><![CDATA[500 mil]]></title>
+	</song>
+</InetSongDb>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Zpěvník</title>
+    <link
+      rel="stylesheet"
+      href="styles/defaultStyle.css"
+      lang="en"
+      type="text/css"
+    />
+    <script type="module" src="js/webLoader.js"></script>
+  </head>
+
+  <body>
+    <div id="div-menu" class="main-menu">
+      <h1 class="site-name">Projekt zpěvník</h1>
+      <button id="songbook-btn" class="menu-btn">Zpěvník</button>
+      <button id="chords-btn" class="menu-btn">Akordy</button>
+    </div>
+
+    <div id="div-songbook" class="hidden">
+      <div class="songbook-header">
+        <div id="div-songbook-menu-icon">
+          <img
+            src="resources/menuIcon.webp"
+            alt="Menu button image"
+            class="main-menu-icon"
+            id="songbook-menu-btn"
+          />
+        </div>
+        <div>
+          <h2 class="site-name">Zpěvník</h2>
+        </div>
+        <div>
+          <button id="songbook-close" class="close-btn">Zavřít</button>
+        </div>
+      </div>
+      <div class="div-main-section">
+        <div id="div-songbook-menu">
+          <div id="filter-container">
+            <form>
+              <fieldset>
+                <legend>Filtrování</legend>
+                <div id="form-container">
+                  <label for="author-input" class="form-item">Autor</label>
+                  <input
+                    type="text"
+                    id="author-input"
+                    list="possible_authors"
+                    autocomplete="off"
+                    class="form-item"
+                  />
+                  <button id="autor-clear" class="form-item">X</button>
+
+                  <label for="song-input">Písně</label>
+                  <input type="text" id="song-input" />
+                  <button id="song-clear">X</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="songbook-list">
+            <select id="songbook-list" name="songs" multiple="false"></select>
+          </div>
+        </div>
+
+        <div id="div-songbook-content">
+          <div class="songbook-text">
+            <div id="song-info" class="song-info">
+              <div id="songbook-name" class="song-info"></div>
+              <div id="songbook-author" class="song-info"></div>
+            </div>
+            <div id="songbook-text" class="song-info"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="div-chords" class="chords hidden">
+      <div class="chords-header">
+        <h2 class="site-name">Akordy</h2>
+        <button id="chords-close" class="close-btn">Zavřít</button>
+      </div>
+    </div>
+
+    <!-- <div class="main-container">
+            <div id="right-side" class="right-side">
+                <div id="song-name" class="song-info"></div>
+                <div id="song-author" class="song-info"></div>
+                <div id="song-text" class="song-info"></div>
+            </div>
+
+            <img src="resources/menuIcon.webp" alt="Menu button image" class="main-menu-icon" id="main-menu-btn">
+            <div id="menu" class="menu">
+                <div class="inner-menu">
+                    <header id="header">
+                        <h2 class="site-name">Zpěvník</h2>
+                    </header>
+    
+                    <div id="filter-container"> 
+                        <form>
+                            <fieldset>
+                                <legend>Filtrování</legend>
+                                <label for="author-input">Autor</label>
+                                <input type="text" id="author-input" list="possible_authors" autocomplete="off">
+                                <button id="autor-clear">X</button>
+                        
+                                <label for="song-input">Písně</label>
+                                <input type="text" id="song-input">
+                                <button id="song-clear">X</button>
+                            </fieldset>
+                            <datalist id="possible_authors"> </datalist>
+                        </form>
+                    </div>
+    
+                    <div id="song-list-div"> 
+                        <select id="song-list" name="songs" multiple="false"></select>
+                    </div>
+
+                    <div>
+                        Nalezli jste chybu? Napište
+                        <a href="mailto:zpevnik@arcusvault.synology.me">zpevnik@arcusvault.synology.me</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+  </body>
+</html>

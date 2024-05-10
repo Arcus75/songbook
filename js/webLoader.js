@@ -151,6 +151,26 @@ function getInterprets() {
 }
 
 function populateSongs() {
+    // const listDiv = document.getElementById('songbook-songlist');
+    // listDiv.innerHTML = '';
+
+    //const ul = document.createElement('ul');
+    const ul = document.getElementById('songbook-list-ul')
+    ul.innerHTML = '';
+
+    songs.sort((a, b) => a.name.localeCompare(b.name));
+
+    songs.forEach((song) => {
+        const li = document.createElement('li');
+        li.innerHTML = song.name; //TODO add author
+        li.addEventListener('click', function () {
+            displaySong(song);
+        });
+        ul.append(li);
+
+    });
+
+    return
     const list = document.getElementById('songbook-list');
     list.innerHTML = '';
     songs.forEach((song) => {

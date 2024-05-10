@@ -2,6 +2,10 @@ html {
   color-scheme: light;
   --mainbackground: white;
 
+  --li-background: #f0f0f0;
+  --li-hover-background: #e0e0e0;
+  --li-border-color: #ccc;
+
   --chordcolor: #005cbf;
   --capocolor: blue;
   --labelcolor: ;
@@ -113,7 +117,7 @@ div {
 }
 
 .songbook-list {
-  height: 60%;
+  height: 70%;
   width: 90%;
   padding: 1em;
 }
@@ -125,6 +129,27 @@ div {
 
 .div-main-section {
   padding-top: 4rem;
+}
+
+ul#songbook-list-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul#songbook-list-ul li {
+  height: 100%;
+  overflow: auto;
+  padding: 2px;
+  padding-left: 6px;
+  margin-bottom: 2px;
+  background-color: var(--li-background);
+  border: 1px solid var(--li-border-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ul#songbook-list-ul li:hover {
+  background-color: var(--li-hover-background);
 }
 
 /* ---------------------                        Chords format                          ------------------------------- */

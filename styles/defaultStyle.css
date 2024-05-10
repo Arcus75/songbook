@@ -17,8 +17,7 @@ div {
   transition: all 0.3s ease-in-out;
 }
 
-.songbook-header,
-.chords-header {
+.songbook-header {
   display: grid;
   grid-template-columns: 10% 80% 10%;
   align-items: center;
@@ -129,8 +128,21 @@ div {
 }
 
 /* ---------------------                        Chords format                          ------------------------------- */
+.chords-header {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+}
 
 /* ---------------------                        Page format                          ------------------------------- */
+
+main {
+  padding-top: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
 
 /* ----------------------------------------------------------- */
 
@@ -243,6 +255,10 @@ div#song-info {
 }
 
 div.hidden {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 

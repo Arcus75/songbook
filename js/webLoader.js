@@ -14,7 +14,7 @@ var songs = [];
 
 function siteLoaded() {
 
-
+    //setBackground()
     addListeners()
 }
 
@@ -30,6 +30,10 @@ function addListeners() {
     document.getElementById('songbook-btn').addEventListener('click', toggleSongbook);
     document.getElementById('songbook-close').addEventListener('click', toggleSongbook);
     document.getElementById('songbook-list').addEventListener('change', onSongbookChange);
+
+    document.getElementById('chords-btn').addEventListener('click', toggleChords)
+    document.getElementById('chords-close').addEventListener('click', toggleChords)
+    //document.getElementById('login-btn').addEventListener('click', redirectToLogin)
 }
 
 function toggleSongbook() {
@@ -54,6 +58,66 @@ function menuToggle() {
 
     content.classList.toggle('open');
 }
+
+function setBackground() {
+    const background = document.getElementById('div-menu');
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    background.appendChild(canvas);
+
+    const topColor = '#F0F0F0';
+    const bottomColor = '#D0D0D0';
+    const curveHeight = 100;
+    const curveSpeed = 2;
+
+    let curveOffset = 0;
+
+    function drawBackground() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw top color
+        ctx.fillStyle = topColor;
+        ctx.fillRect(0, 0, width, height - curveHeight);
+
+        // Draw bottom color
+        ctx.fillStyle = bottomColor;
+        ctx.beginPath();
+        ctx.moveTo(0, height - curveHeight);
+        ctx.quadraticCurveTo(width / 2, height - curveHeight + curveOffset, width, height - curveHeight);
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+        ctx.fill();
+
+        curveOffset += curveSpeed;
+        if (curveOffset > width) {
+            curveOffset = 0;
+        }
+
+        requestAnimationFrame(drawBackground);
+    }
+
+    drawBackground();
+}
+
+// -------------------------------------- Login --------------------------------------
+
+function redirectToLogin() {
+    if (!localStorage.getItem('user')) {
+        window.location.href = 'login.html'
+    } else {
+        var user = JSON.parse(localStorage.getItem('user'));
+    }
+}
+
+
+// -------------------------------------- Chords --------------------------------------
+
+
 
 // -------------------------------------- Backend --------------------------------------
 

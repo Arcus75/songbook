@@ -10,10 +10,16 @@
       type="text/css"
     />
     <script type="module" src="js/webLoader.js"></script>
+    <script>
+      function play_sound(source) {
+        var audio = new Audio("resources/audio/" + source);
+        audio.play();
+      }
+    </script>
   </head>
 
   <body>
-    <div id="div-menu" class="main-menu">
+    <div id="div-menu" class="main-menu background">
       <h1 class="site-name">Projekt zpěvník</h1>
       <button id="songbook-btn" class="menu-btn">Zpěvník</button>
       <button id="chords-btn" class="menu-btn">Akordy</button>
@@ -79,51 +85,63 @@
 
     <div id="div-chords" class="chords hidden">
       <div class="chords-header">
-        <h2 class="site-name">Akordy</h2>
-        <button id="chords-close" class="close-btn">Zavřít</button>
+        <div>
+          <h2 class="site-name">Akordy</h2>
+        </div>
+        <div>
+          <button id="chords-close" class="close-btn">Zavřít</button>
+        </div>
       </div>
+
+      <main>
+        <section>
+          <h2>Klasické akordy</h2>
+          <div>
+            <button onclick="play_sound('Chord_C.mp3')">
+              <img src="resources/chord_img/C.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_D.mp3')">
+              <img src="resources/chord_img/D.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_E.mp3')">
+              <img src="resources/chord_img/E.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_F.mp3')">
+              <img src="resources/chord_img/F.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_G.mp3')">
+              <img src="resources/chord_img/G.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_A.mp3')">
+              <img src="resources/chord_img/A.svg" />
+            </button>
+
+            <button onclick="play_sound('Chord_H.mp3')">
+              <img src="resources/chord_img/B.svg" />
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Mollové akordy</h2>
+          <div>
+            <button onclick="play_sound('Chord_Dmi.mp3')">
+              <img src="resources/chord_img/Chord_Dmi.svg" />
+            </button>
+            <button onclick="play_sound('Chord_Emi.mp3')">
+              <img src="resources/chord_img/Chord_Emi.svg" />
+            </button>
+            <button onclick="play_sound('Chord_Ami.mp3')">
+              <img src="resources/chord_img/Chord_Ami.svg" />
+            </button>
+          </div>
+        </section>
+      </main>
     </div>
-
-    <!-- <div class="main-container">
-            <div id="right-side" class="right-side">
-                <div id="song-name" class="song-info"></div>
-                <div id="song-author" class="song-info"></div>
-                <div id="song-text" class="song-info"></div>
-            </div>
-
-            <img src="resources/menuIcon.webp" alt="Menu button image" class="main-menu-icon" id="main-menu-btn">
-            <div id="menu" class="menu">
-                <div class="inner-menu">
-                    <header id="header">
-                        <h2 class="site-name">Zpěvník</h2>
-                    </header>
-    
-                    <div id="filter-container"> 
-                        <form>
-                            <fieldset>
-                                <legend>Filtrování</legend>
-                                <label for="author-input">Autor</label>
-                                <input type="text" id="author-input" list="possible_authors" autocomplete="off">
-                                <button id="autor-clear">X</button>
-                        
-                                <label for="song-input">Písně</label>
-                                <input type="text" id="song-input">
-                                <button id="song-clear">X</button>
-                            </fieldset>
-                            <datalist id="possible_authors"> </datalist>
-                        </form>
-                    </div>
-    
-                    <div id="song-list-div"> 
-                        <select id="song-list" name="songs" multiple="false"></select>
-                    </div>
-
-                    <div>
-                        Nalezli jste chybu? Napište
-                        <a href="mailto:zpevnik@arcusvault.synology.me">zpevnik@arcusvault.synology.me</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
   </body>
 </html>

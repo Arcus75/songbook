@@ -29,11 +29,14 @@ function addListeners() {
     document.getElementById('songbook-menu-btn').addEventListener('click', menuToggle);
     document.getElementById('songbook-btn').addEventListener('click', toggleSongbook);
     document.getElementById('songbook-close').addEventListener('click', toggleSongbook);
-    document.getElementById('songbook-list').addEventListener('change', onSongbookChange);
 
     document.getElementById('chords-btn').addEventListener('click', toggleChords)
     document.getElementById('chords-close').addEventListener('click', toggleChords)
-    //document.getElementById('login-btn').addEventListener('click', redirectToLogin)
+
+    document.getElementById('editor-btn').addEventListener('click', toggleEditor)
+    document.getElementById('editor-close').addEventListener('click', toggleEditor)
+    document.getElementById('new-song-btn').addEventListener('click', addSong)
+    document.getElementById('update-song-btn').addEventListener('click', updateSong)
 }
 
 function toggleSongbook() {
@@ -44,6 +47,11 @@ function toggleSongbook() {
 
 function toggleChords() {
     document.getElementById('div-chords').classList.toggle('hidden')
+    document.getElementById('div-menu').classList.toggle('hidden')
+}
+
+function toggleEditor() {
+    document.getElementById('div-editor').classList.toggle('hidden')
     document.getElementById('div-menu').classList.toggle('hidden')
 }
 
@@ -117,9 +125,139 @@ function redirectToLogin() {
 
 // -------------------------------------- Chords --------------------------------------
 
+// -------------------------------------- Editor --------------------------------------
 
+async function addSong(e) {
+    e.preventDefault();
+
+    const name_in = document.getElementById('song-name')
+    const text_in = document.getElementById('song-text');
+    const interpret_in = document.getElementById('song-interpret');
+
+    const name = name_in.value;
+    const text = text_in.value;
+    let interpret = interpret_in.value;
+
+    // Get the id of the interpret
+    let interpretId = await getInterpret(interpret);
+    // If the interpret doesn't exist, create it and get the id
+    if (!interpretId) {
+        interpretId = await createInterpret(interpret);
+    }
+
+    const data = JSON.stringify({
+        data: {
+            name: name, text: text, interpret: interpretId
+        }
+    })
+
+    fetch('http://127.0.0.1:1337/api/songs', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: data,
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Song created:', data);
+            // Clear the input fields
+            name_in.value = '';
+            text_in.value = '';
+            interpret_in.value = '';
+            // Show a popup message
+            alert('Song created successfully!');
+        })
+        .catch((error) => console.error('Error:', error));
+}
+
+async function updateSong(e) {
+    e.preventDefault();
+
+    const id_in = document.getElementById('song-id');
+    const name_in = document.getElementById('song-name')
+    const text_in = document.getElementById('song-text');
+    const interpret_in = document.getElementById('song-interpret');
+
+    const id = id_in.value;
+    const name = name_in.value;
+    const text = text_in.value;
+    let interpret = interpret_in.value;
+
+    // Get the id of the interpret
+    let interpretId = await getInterpret(interpret);
+
+    // If the interpret doesn't exist, create it and get the id
+    if (!interpretId) {
+        interpretId = createInterpret(interpret);
+    }
+
+    const data = JSON.stringify({
+        data: {
+            name: name, text: text, interpret: interpretId.value
+        }
+    })
+    if (id) {
+        fetch(`http://127.0.0.1:1337/api/songs/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: data,
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Song created:', data);
+                // Clear the input fields
+                id_in = '';
+                name_in.value = '';
+                text_in.value = '';
+                interpret_in.value = '';
+                // Show a popup message
+                alert('Song created successfully!');
+            })
+            .catch((error) => console.error('Error:', error));
+    }
+}
 
 // -------------------------------------- Backend --------------------------------------
+
+async function getInterpret(name) {
+    const response = await fetch('http://127.0.0.1:1337/api/interprets?filters[name][$eqi]=' + name);
+    const data = await response.json();
+
+    if (data.data.length > 0) {
+        return data.data[0].id;
+    } else {
+        return null
+    }
+}
+
+async function createInterpret(name) {
+    const formattedName = name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+    const data = JSON.stringify({
+        data: { name: formattedName }
+    })
+
+    const response = await fetch('http://127.0.0.1:1337/api/interprets', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: data
+    });
+
+    const result = await response.json();
+
+    console.log('Interpret created:', result);
+
+    if (result.data) {
+        return result.data.id;
+    } else {
+        console.error('Error:', result.error);
+        return null;
+    }
+}
 
 function getSongs() {
     var xhr = new XMLHttpRequest();

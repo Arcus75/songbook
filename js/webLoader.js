@@ -266,8 +266,8 @@ function getSongs() {
             const response = JSON.parse(this.responseText);
             songs = response.data.map(songData => {
                 const attrs = songData.attributes;
-                console.log(attrs);
-                return new Song(songData.id, attrs.name, attrs.deleted, attrs.public, attrs.createdAt, attrs.updatedAt, attrs.author, attrs.text)
+                //console.log(attrs);
+                return new Song(songData.id, attrs.name, attrs.deleted, attrs.public, attrs.createdAt, attrs.updatedAt, attrs.interpret.data.attributes.name, attrs.text)
             })
             populateSongs()
         }

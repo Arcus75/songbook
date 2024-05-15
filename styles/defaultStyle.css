@@ -21,7 +21,8 @@ div {
   transition: all 0.3s ease-in-out;
 }
 
-.songbook-header {
+.songbook-header,
+.editor-header {
   display: grid;
   grid-template-columns: 10% 80% 10%;
   align-items: center;
@@ -167,6 +168,49 @@ main {
   padding-top: 4rem;
   padding-left: 4rem;
   padding-right: 4rem;
+}
+
+/* ---------------------                        Chords format                          ------------------------------- */
+
+#song-form label,
+#song-form input,
+#song-form textarea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#song-form input,
+#song-form textarea {
+  margin-left: 20px;
+}
+
+#song-form input {
+  width: 30%;
+}
+
+#song-form textarea {
+  width: 80%;
+  resize: none;
+}
+
+#song-form input[type="submit"] {
+  padding: 1%;
+  margin-top: 20px;
+  width: auto;
+  box-shadow: 3px 0px 5px black;
+}
+
+main#editor-main {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding: 20px;
+  background-color: lightgray;
+  box-shadow: 3px 0px 5px black;
+}
+
+div.form-line {
+  display: flex;
 }
 
 /* ----------------------------------------------------------- */

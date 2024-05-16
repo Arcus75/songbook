@@ -151,7 +151,7 @@ async function addSong(e) {
         }
     })
 
-    fetch('http://127.0.0.1:1337/api/songs', {
+    fetch('http://147.32.30.57:1337/api/songs', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ async function updateSong(e) {
         }
     })
     if (id) {
-        fetch(`http://127.0.0.1:1337/api/songs/${id}`, {
+        fetch(`http://147.32.30.57:1337/api/songs/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -223,7 +223,7 @@ async function updateSong(e) {
 // -------------------------------------- Backend --------------------------------------
 
 async function getInterpret(name) {
-    const response = await fetch('http://127.0.0.1:1337/api/interprets?filters[name][$eqi]=' + name);
+    const response = await fetch('http://147.32.30.57:1337/api/interprets?filters[name][$eqi]=' + name);
     const data = await response.json();
 
     if (data.data.length > 0) {
@@ -239,7 +239,7 @@ async function createInterpret(name) {
         data: { name: formattedName }
     })
 
-    const response = await fetch('http://127.0.0.1:1337/api/interprets', {
+    const response = await fetch('http://147.32.30.57:1337/api/interprets', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -272,7 +272,7 @@ function getSongs() {
             populateSongs()
         }
     };
-    xhr.open("GET", "http://127.0.0.1:1337/api/songs?populate=*")
+    xhr.open("GET", "http://147.32.30.57:1337/api/songs?populate=*")
     xhr.send()
 }
 
@@ -284,7 +284,7 @@ function getInterprets() {
             console.log(data)
         }
     };
-    xhr.open("GET", "http://127.0.0.1:1337/api/interprets")
+    xhr.open("GET", "http://147.32.30.57:1337/api/interprets")
     xhr.send()
 }
 

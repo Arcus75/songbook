@@ -9,188 +9,29 @@
       lang="en"
       type="text/css"
     />
-    <script type="module" src="js/webLoader.js"></script>
+
     <script>
       function play_sound(source) {
         var audio = new Audio("resources/audio/" + source);
         audio.play();
       }
     </script>
+
+    <script type="module" src="js/code.js"></script>
   </head>
 
   <body>
-    <div id="div-menu" class="main-menu background">
+    <nav id="div-menu" class="main-menu background">
       <h1 class="site-name">Projekt zpěvník</h1>
       <button id="songbook-btn" class="menu-btn">Zpěvník</button>
       <button id="chords-btn" class="menu-btn">Akordy</button>
       <button id="editor-btn" class="menu-btn">Editor</button>
-    </div>
+    </nav>
 
-    <div id="div-songbook" class="hidden">
-      <div class="songbook-header">
-        <div id="div-songbook-menu-icon">
-          <img
-            src="resources/menuIcon.webp"
-            alt="Menu button image"
-            class="main-menu-icon"
-            id="songbook-menu-btn"
-          />
-        </div>
-        <div>
-          <h2 class="site-name">Zpěvník</h2>
-        </div>
-        <div>
-          <button id="songbook-close" class="close-btn">Zavřít</button>
-        </div>
-      </div>
-      <div class="div-main-section">
-        <div id="div-songbook-menu">
-          <div id="filter-container">
-            <form>
-              <fieldset>
-                <legend>Filtrování</legend>
-                <div id="form-container">
-                  <label for="author-input" class="form-item">Autor</label>
-                                   
-                  <input
-                    type="text"
-                    id="author-input"
-                    list="possible_authors"
-                    autocomplete="off"
-                    class="form-item"
-                  />
-                  <button id="autor-clear" class="form-item">X</button>
+    <div id="div-songbook" class="hidden"></div>
 
-                  <label for="song-input">Písně</label>
-                  <input type="text" id="song-input" />
-                  <button id="song-clear">X</button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="songbook-list">
-            <!-- <select id="songbook-list" name="songs" multiple="false"></select> -->
-            <ul id="songbook-list-ul">
+    <div id="div-chords" class="chords hidden"></div>
 
-            </ul>
-            <!-- <div id="songbook-songlist"></div> -->
-          </div>
-      </div>  </div>
-
-        <div id="div-songbook-content">
-          <div class="songbook-text">
-            <div id="song-info" class="song-info">
-              <div id="songbook-name" class="song-info"></div>
-              <div id="songbook-author" class="song-info"></div>
-            </div>
-            <div id="songbook-text" class="song-info"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="div-chords" class="chords hidden">
-      <div class="chords-header">
-        <div></div>
-        <div>
-          <h2 class="site-name">Akordy</h2>
-        </div>
-        <div>
-          <button id="chords-close" class="close-btn">Zavřít</button>
-        </div>
-      </div>
-
-      <main>
-        <section>
-          <h2>Klasické akordy</h2>
-          <div>
-            <button class="chord-btn" onclick="play_sound('Chord_C.mp3')">
-              <img src="resources/chord_img/C.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_D.mp3')">
-              <img src="resources/chord_img/D.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_E.mp3')">
-              <img src="resources/chord_img/E.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_F.mp3')">
-              <img src="resources/chord_img/F.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_G.mp3')">
-              <img src="resources/chord_img/G.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_A.mp3')">
-              <img src="resources/chord_img/A.svg" />
-            </button>
-
-            <button class="chord-btn" onclick="play_sound('Chord_H.mp3')">
-              <img src="resources/chord_img/B.svg" />
-            </button>
-          </div>
-        </section>
-
-        <section>
-          <h2>Mollové akordy</h2>
-          <div>
-            <button class="chord-btn" onclick="play_sound('Chord_Dmi.mp3')">
-              <img src="resources/chord_img/Chord_Dmi.svg" />
-            </button>
-            <button class="chord-btn" onclick="play_sound('Chord_Emi.mp3')">
-              <img src="resources/chord_img/Chord_Emi.svg" />
-            </button>
-            <button class="chord-btn" onclick="play_sound('Chord_Ami.mp3')">
-              <img src="resources/chord_img/Chord_Ami.svg" />
-            </button>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <div id="div-editor" class="editor hidden">
-      <header class="editor-header">
-        <div id="div-songbook-menu-icon">
-          <img
-            src="resources/menuIcon.webp"
-            alt="Menu button image"
-            class="main-menu-icon"
-            id="songbook-menu-btn"
-          />
-        </div>
-        <div>
-          <h2 class="site-name">Editor</h2>
-        </div>
-        <div>
-          <button id="editor-close" class="close-btn">Zavřít</button>
-        </div>
-      </header>
-      <section class="div-main-section">
-        <aside id="div-editor-menu">
-          <div id="existing-songs"></div>
-        </aside>
-        <main id="editor-main">
-          <form id="song-form">
-            <input type="hidden" id="song-id">
-            <label for="song-name">Song name:</label>
-            <input type="text" id="song-name" name="song-name" placeholder="Enter song name" required>
-            <label for="song-interpret">Interpret:</label>
-            <input type="text" id="song-interpret" name="song-interpret" placeholder="Enter interpret" required>
-            <label for="song-text">Song text:</label>
-            <textarea id="song-text" name="song-text" rows="30" required
-            placeholder="Enter song text, [Ami] is considered chord, &lt;Label:A&gt; is considered name of section"></textarea>
-            <div class="form-line">
-              <input id="new-song-btn" type="submit" value="Save as new">
-              <input id="update-song-btn" type="submit" value="Save">
-            </div>
-          </form>
-        </main>
-      </section>
-    </div>
-
-
+    <div id="div-editor" class="editor hidden"></div>
   </body>
 </html>

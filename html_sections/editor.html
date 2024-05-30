@@ -1,0 +1,54 @@
+<header class="editor-header">
+  <div id="div-songbook-menu-icon">
+    <img
+      src="resources/menuIcon.webp"
+      alt="Menu button image"
+      class="main-menu-icon"
+      id="songbook-menu-btn"
+    />
+  </div>
+  <div>
+    <h2 class="site-name">Editor</h2>
+  </div>
+  <div>
+    <button id="editor-close" class="close-btn">Zavřít</button>
+  </div>
+</header>
+<section class="div-main-section">
+  <aside id="div-editor-menu">
+    <div id="existing-songs"></div>
+  </aside>
+  <main id="editor-main">
+    <form id="song-form">
+      <input type="hidden" id="song-id" />
+      <label for="song-name">Song name:</label>
+      <input
+        type="text"
+        id="song-name"
+        name="song-name"
+        placeholder="Enter song name"
+        required
+      />
+      <label for="song-interpret">Interpret:</label>
+      <input
+        type="text"
+        id="song-interpret"
+        name="song-interpret"
+        placeholder="Enter interpret"
+        required
+      />
+      <label for="song-text">Song text:</label>
+      <textarea
+        id="song-text"
+        name="song-text"
+        rows="30"
+        required
+        placeholder="Enter song text, [Ami] is considered chord, &lt;Label:A&gt; is considered name of section"
+      ></textarea>
+      <div class="form-line">
+        <input id="new-song-btn" type="submit" value="Save as new" />
+        <input id="update-song-btn" type="submit" value="Save" />
+      </div>
+    </form>
+  </main>
+</section>

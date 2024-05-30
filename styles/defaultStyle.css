@@ -15,13 +15,108 @@ html {
   --menu-animation-duration: 0.5s;
 }
 
-/* --------------------- Page format ------------------------------- */
-
-div {
-  transition: all 0.3s ease-in-out;
+main {
+  padding-top: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
-.songbook-header,
+/* --------------------- Index format ------------------------------- */
+
+h1.site-name {
+  text-align: center;
+  flex-grow: 1;
+}
+
+button.menu-btn {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 3px 0px 5px black;
+}
+
+nav.main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+nav.hidden {
+  display: none;
+}
+
+div.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* --------------------- Songbook format ------------------------------- */
+
+p {
+  margin: 0;
+  padding: 0;
+  min-height: 0.5em;
+  padding-right: 3em;
+}
+
+span.label {
+  color: var(--textcolor);
+  font-weight: 700;
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
+}
+
+span.chord {
+  color: var(--chordcolor);
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  margin-top: 1.2em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+span.capo {
+  color: var(--capocolor);
+  font-weight: bold;
+}
+
+.songbook-header {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  justify-items: center;
+  align-items: center;
+
+  position: fixed;
+  width: 100vw;
+}
+
+/* --------------------- Chords format ------------------------------- */
+
+button.chord-btn {
+  margin-top: 5px;
+}
+
+header.chords-header {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+}
+
+/* --------------------- Editor format ------------------------------- */
+
 .editor-header {
   display: grid;
   grid-template-columns: 10% 80% 10%;
@@ -30,38 +125,22 @@ div {
   width: 100vw;
 }
 
-.form-item {
-  margin-bottom: 1em;
+/* --------------------- Unresolved ------------------------------- */
+
+/* --------------------- Page format ------------------------------- */
+
+div {
+  transition: all 0.3s ease-in-out;
 }
 
-.site-name {
-  text-align: center;
-  flex-grow: 1;
+.form-item {
+  margin-bottom: 1em;
 }
 
 .close-btn {
   align-self: flex-start;
   cursor: pointer;
   padding: 1rem;
-  box-shadow: 3px 0px 5px black;
-}
-
-.main-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.menu-btn {
-  display: block;
-  width: 80%;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  font-weight: bold;
-  text-align: center;
   box-shadow: 3px 0px 5px black;
 }
 
@@ -158,29 +237,6 @@ ul#songbook-list-ul li:hover {
   background-color: var(--li-hover-background);
 }
 
-/* ---------------------                        Chords format                          ------------------------------- */
-.chords-header {
-  display: grid;
-  grid-template-columns: 10% 80% 10%;
-  align-items: center;
-  position: fixed;
-  width: 100vw;
-}
-
-button.chord-btn {
-  margin-top: 5px;
-}
-
-/* ---------------------                        Page format                          ------------------------------- */
-
-main {
-  padding-top: 4rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-/* ---------------------                        Chords format                          ------------------------------- */
-
 #song-form label,
 #song-form input,
 #song-form textarea {
@@ -223,13 +279,6 @@ div.form-line {
 }
 
 /* ----------------------------------------------------------- */
-
-p {
-  margin: 0;
-  padding: 0;
-  min-height: 0.5em;
-  padding-right: 3em;
-}
 
 .main-container {
   /*position: relative;*/
@@ -330,35 +379,4 @@ div#song-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-div.hidden {
-  display: none;
-}
-
-.hidden {
-  display: none;
-}
-
-span.label {
-  color: var(--textcolor);
-  font-weight: 700;
-  font-size: large;
-  font-family: "Times New Roman", Times, serif;
-}
-
-span.chord {
-  color: var(--chordcolor);
-  font-weight: bold;
-  font-size: 16px;
-  display: inline-block;
-  position: relative;
-  top: -0.8em;
-  margin-top: 1.2em;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-span.capo {
-  color: var(--capocolor);
-  font-weight: bold;
 }

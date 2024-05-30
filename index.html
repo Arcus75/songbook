@@ -91,6 +91,7 @@
 
     <div id="div-chords" class="chords hidden">
       <div class="chords-header">
+        <div></div>
         <div>
           <h2 class="site-name">Akordy</h2>
         </div>
@@ -103,31 +104,31 @@
         <section>
           <h2>Klasické akordy</h2>
           <div>
-            <button onclick="play_sound('Chord_C.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_C.mp3')">
               <img src="resources/chord_img/C.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_D.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_D.mp3')">
               <img src="resources/chord_img/D.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_E.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_E.mp3')">
               <img src="resources/chord_img/E.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_F.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_F.mp3')">
               <img src="resources/chord_img/F.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_G.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_G.mp3')">
               <img src="resources/chord_img/G.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_A.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_A.mp3')">
               <img src="resources/chord_img/A.svg" />
             </button>
 
-            <button onclick="play_sound('Chord_H.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_H.mp3')">
               <img src="resources/chord_img/B.svg" />
             </button>
           </div>
@@ -136,13 +137,13 @@
         <section>
           <h2>Mollové akordy</h2>
           <div>
-            <button onclick="play_sound('Chord_Dmi.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_Dmi.mp3')">
               <img src="resources/chord_img/Chord_Dmi.svg" />
             </button>
-            <button onclick="play_sound('Chord_Emi.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_Emi.mp3')">
               <img src="resources/chord_img/Chord_Emi.svg" />
             </button>
-            <button onclick="play_sound('Chord_Ami.mp3')">
+            <button class="chord-btn" onclick="play_sound('Chord_Ami.mp3')">
               <img src="resources/chord_img/Chord_Ami.svg" />
             </button>
           </div>
@@ -175,11 +176,12 @@
           <form id="song-form">
             <input type="hidden" id="song-id">
             <label for="song-name">Song name:</label>
-            <input type="text" id="song-name" name="song-name">
+            <input type="text" id="song-name" name="song-name" placeholder="Enter song name" required>
             <label for="song-interpret">Interpret:</label>
-            <input type="text" id="song-interpret" name="song-interpret">
+            <input type="text" id="song-interpret" name="song-interpret" placeholder="Enter interpret" required>
             <label for="song-text">Song text:</label>
-            <textarea id="song-text" name="song-text" rows="30"></textarea>
+            <textarea id="song-text" name="song-text" rows="30" required
+            placeholder="Enter song text, [Ami] is considered chord, &lt;Label:A&gt; is considered name of section"></textarea>
             <div class="form-line">
               <input id="new-song-btn" type="submit" value="Save as new">
               <input id="update-song-btn" type="submit" value="Save">

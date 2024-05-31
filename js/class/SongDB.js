@@ -1,6 +1,11 @@
 import { SERVER_URL } from '../config.js';
 import Song from '../model/Song.js';
 
+/**
+ * Fetches all songs from the database.
+ *
+ * @returns {Array<Song>} An array of Song objects if successful, undefined otherwise.
+ */
 export async function getSongsDb() {
     try {
         const response = await fetch(`${SERVER_URL}/songs?populate=*`);
@@ -18,6 +23,13 @@ export async function getSongsDb() {
     }
 }
 
+/**
+ * Creates a new song in the database.
+ *
+ * @param {string} name - The name of the song.
+ * @param {string} text - The lyrics of the song.
+ * @param {string} interpretId - The ID of the interpret of the song.
+ */
 export async function createSongDb(name, text, interpretId) {
     const data = JSON.stringify({
         data: {
@@ -40,6 +52,14 @@ export async function createSongDb(name, text, interpretId) {
         }).catch((error) => console.error('Error:', error));
 }
 
+/**
+ * Updates a song in the database.
+ *
+ * @param {string} id - The ID of the song to update.
+ * @param {string} name - The new name of the song.
+ * @param {string} text - The new lyrics of the song.
+ * @param {string} interpretId - The ID of the new interpret of the song.
+ */
 export async function updateSongDb(id, name, text, interpretId) {
     const data = JSON.stringify({
         data: { name: name, text: text, interpret: interpretId.value }

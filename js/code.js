@@ -19,7 +19,23 @@ var Loader = null;
 var songs = [];
 var filteredSongs = [];
 
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', function () {
+//         navigator.serviceWorker.register('/serviceWorker.js').then(function (registration) {
+//             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+//         }, function (err) {
+//             console.log('ServiceWorker registration failed: ', err);
+//         });
+//     });
+// }
+
 async function fillSite() {
+    // if (navigator.onLine) {
+    //     son
+    // } else {
+
+    // }
+
     try {
         let response = await fetch("../html_sections/chords.html");
         let text = await response.text();

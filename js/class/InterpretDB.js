@@ -1,5 +1,11 @@
 import { SERVER_URL } from '../config.js';
 
+/**
+ * Fetches the ID of an interpret from the database.
+ *
+ * @param {string} name - The name of the interpret.
+ * @returns {string|null} The ID of the interpret if found, null otherwise.
+ */
 export async function getInterpretDb(name) {
     const response = await fetch(`${SERVER_URL}/interprets?filters[name][$eqi]=` + name);
     const data = await response.json();
@@ -11,6 +17,12 @@ export async function getInterpretDb(name) {
     }
 }
 
+/**
+ * Creates a new interpret in the database.
+ *
+ * @param {string} name - The name of the interpret.
+ * @returns {string|null} The ID of the newly created interpret if successful, null otherwise.
+ */
 export async function createInterpretDb(name) {
     const formattedName = name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
     const data = JSON.stringify({
@@ -37,6 +49,11 @@ export async function createInterpretDb(name) {
     }
 }
 
+/**
+ * Fetches the names of all interprets from the database.
+ *
+ * @returns {Array<string>} An array of the names of all interprets.
+ */
 export async function getInterpretsDb() {
     const response = await fetch(`${SERVER_URL}/interprets`);
     const data = await response.json();

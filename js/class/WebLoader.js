@@ -25,6 +25,9 @@ export default class WebLoader {
         this.addEventListener(this.getElement("editor-close"), "click", this.goToMenu.bind(this));
 
         this.addEventListener(this.getElement("songbook-menu-btn"), "click", this.menuToggle.bind(this));
+
+        window.addEventListener('online', this.wentOnline.bind(this));
+        window.addEventListener('offline', this.wentOffline.bind(this));
     }
 
     /* ----------------- BOUND FUNCTIONS ----------------- */
@@ -70,6 +73,16 @@ export default class WebLoader {
         window.history.replaceState({ page: 'menu' }, '', '?page=menu')
         this.displayMenu();
         //window.history.back();
+    }
+
+    wentOffline() {
+        console.log("Browser went offline");
+        alert("You are offline. Please check your internet connection.");
+    }
+
+    wentOnline() {
+        console.log("Browser went online");
+        alert("You are online.");
     }
 
     menuToggle() {

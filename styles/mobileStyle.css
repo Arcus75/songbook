@@ -1,0 +1,178 @@
+@media screen and (max-width: 600px) {
+  main {
+    padding-top: 4rem;
+  }
+
+  /* ------------------ Index ------------------ */
+  button#editor-btn {
+    display: none;
+  }
+
+  div {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* ------------------ Chords ------------------ */
+
+  header.chords-header {
+    display: grid;
+    grid-template-columns: 0% 80% 10%;
+    justify-items: center;
+    position: fixed;
+    width: 100vw;
+    background-color: lightgray;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    left: -10px;
+    padding-top: 1rem;
+    top: -10px;
+    padding-bottom: 1rem;
+  }
+
+  section.chords-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ------------------ Songbook ------------------ */
+
+  .songbook-header {
+    display: grid;
+    grid-template-columns: 10% 70% 10%;
+    justify-items: center;
+    align-items: center;
+
+    position: fixed;
+    width: 100vw;
+  }
+
+  /* ----------------------- Songbook menu */
+  button#filter-clear {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  input#filter-input {
+    height: 1rem;
+    width: auto;
+  }
+
+  div#filter-container {
+    padding: 1rem;
+  }
+
+  #div-songbook-menu-icon {
+    position: relative;
+    z-index: 999;
+    height: 40%;
+    width: 40%;
+    left: 0;
+    transition: all var(--menu-animation-duration) ease-in-out;
+  }
+
+  #songbook-menu-btn {
+    height: 40px;
+    width: 40px;
+    padding: 0.5em;
+  }
+
+  #div-songbook-menu {
+    width: var(--menu-mobile-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: all var(--menu-animation-duration) ease-in-out;
+    transform: translateX(-100%);
+    background-color: darkgrey;
+    z-index: 5;
+    border-right: grey solid 2px;
+    box-shadow: 3px 0px 5px black;
+  }
+
+  #div-songbook-menu.open {
+    transform: translateX(0);
+  }
+
+  #div-songbook-menu-icon.open {
+    transform: translateX(80vw);
+  }
+
+  ul#songbook-list-ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul#songbook-list-ul li {
+    height: 100%;
+    overflow: auto;
+    padding: 2px;
+    padding-left: 6px;
+    margin-bottom: 2px;
+    background-color: var(--li-background);
+    border: 1px solid var(--li-border-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  ul#songbook-list-ul li:hover {
+    background-color: var(--li-hover-background);
+  }
+
+  /* ---------------------------------- Song */
+  p {
+    margin: 0;
+    padding: 0;
+    min-height: 0.5em;
+    padding-right: 3em;
+  }
+
+  span.label {
+    color: var(--textcolor);
+    font-weight: 700;
+    font-size: large;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  span.chord {
+    color: var(--chordcolor);
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    top: -0.8em;
+    margin-top: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  span.capo {
+    color: var(--capocolor);
+    font-weight: bold;
+  }
+
+  div#songbook-text {
+    padding-left: 1.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    line-height: 1.3;
+    font-size: 1.07em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* max-height: 80vh; */
+    align-content: center;
+    transition: all var(--menu-animation-duration) ease-in-out;
+  }
+
+  div#songbook-author {
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  div#songbook-name {
+    padding: 0.5em;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+  }
+}

@@ -16,13 +16,13 @@ export default class WebLoader {
 
     addListeners() {
         this.addEventListener(this.getElement("songbook-btn"), "click", this.toggleSongbook.bind(this));
-        this.addEventListener(this.getElement("songbook-close"), "click", this.toggleSongbook.bind(this));
+        this.addEventListener(this.getElement("songbook-close"), "click", this.goToMenu.bind(this));
 
         this.addEventListener(this.getElement("chords-btn"), "click", this.toggleChords.bind(this));
-        this.addEventListener(this.getElement("chords-close"), "click", this.toggleChords.bind(this));
+        this.addEventListener(this.getElement("chords-close"), "click", this.goToMenu.bind(this));
 
         this.addEventListener(this.getElement("editor-btn"), "click", this.toggleEditor.bind(this));
-        this.addEventListener(this.getElement("editor-close"), "click", this.toggleEditor.bind(this));
+        this.addEventListener(this.getElement("editor-close"), "click", this.goToMenu.bind(this));
 
         this.addEventListener(this.getElement("songbook-menu-btn"), "click", this.menuToggle.bind(this));
     }
@@ -31,6 +31,7 @@ export default class WebLoader {
     toggleSongbook() {
         this.songbook.classList.toggle('hidden');
         this.menu.classList.toggle("hidden");
+        history.pushState({ page: 'songbook' }, '', '?page=songbook')
     }
 
     toggleChords() {
@@ -41,6 +42,34 @@ export default class WebLoader {
     toggleEditor() {
         this.editor.classList.toggle('hidden');
         this.menu.classList.toggle("hidden");
+    }
+
+    displaySongbook() {
+        this.songbook.classList.toggle('hidden');
+        this.menu.classList.toggle("hidden");
+    }
+
+    displayChords() {
+        this.chords.classList.toggle('hidden');
+        this.menu.classList.toggle("hidden");
+    }
+
+    displayEditor() {
+        this.chords.classList.toggle('hidden');
+        this.menu.classList.toggle("hidden");
+    }
+
+    displayMenu() {
+        this.chords.classList.add('hidden');
+        this.editor.classList.add('hidden');
+        this.songbook.classList.add('hidden');
+        this.menu.classList.remove("hidden");
+    }
+
+    goToMenu() {
+        window.history.replaceState({ page: 'menu' }, '', '?page=menu')
+        this.displayMenu();
+        //window.history.back();
     }
 
     menuToggle() {

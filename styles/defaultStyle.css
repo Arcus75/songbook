@@ -110,6 +110,7 @@ button.chord-btn {
 header.chords-header {
   display: grid;
   grid-template-columns: 10% 80% 10%;
+  justify-items: center;
   align-items: center;
   position: fixed;
   width: 100vw;
@@ -120,21 +121,16 @@ header.chords-header {
 .editor-header {
   display: grid;
   grid-template-columns: 10% 80% 10%;
+  justify-items: center;
   align-items: center;
   position: fixed;
   width: 100vw;
 }
 
-/* --------------------- Unresolved ------------------------------- */
-
 /* --------------------- Page format ------------------------------- */
 
 div {
   transition: all 0.3s ease-in-out;
-}
-
-.form-item {
-  margin-bottom: 1em;
 }
 
 .close-btn {
@@ -143,6 +139,8 @@ div {
   padding: 1rem;
   box-shadow: 3px 0px 5px black;
 }
+
+/* --------------------- Unresolved ------------------------------- */
 
 /* ---------------------                        Songbook format                          ------------------------------- */
 

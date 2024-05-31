@@ -17,6 +17,7 @@ var viableSongbooks = ["Default_full.xml"];
 var Loader = null;
 
 var songs = [];
+var filteredSongs = [];
 
 async function fillSite() {
     try {
@@ -46,6 +47,7 @@ async function siteLoaded() {
     populateSongs()
 
     addListeners()
+    history.pushState({ page: 'menu' }, '', '?page=menu')
 }
 
 function addListeners() {
@@ -56,6 +58,9 @@ function addListeners() {
     //document.getElementById('song-input').addEventListener('input', searchChange);
     //document.getElementById('song-clear').addEventListener('click', clearSong);
     document.addEventListener('keypress', keyHandler);
+
+    document.getElementById('filter-input').addEventListener('input', filterChanged)
+    document.getElementById('filter-clear').addEventListener('click', clearFilter)
 
     document.getElementById('new-song-btn').addEventListener('click', addSong)
     document.getElementById('update-song-btn').addEventListener('click', updateSong)
@@ -71,6 +76,20 @@ function menuToggle() {
     button.classList.toggle('open');
 
     content.classList.toggle('open');
+}
+
+function filterChanged() {
+    let filterValue = document.getElementById('filter-input').value.toLowerCase();
+    filteredSongs = songs.filter((song) => song.name.toLowerCase().includes(filterValue));
+
+    displaySongs(filteredSongs);
+
+}
+
+function clearFilter() {
+    let filter = document.getElementById('filter-input');
+    filter.value = '';
+    filterChanged();
 }
 
 // -------------------------------------- Songs --------------------------------------
@@ -126,10 +145,10 @@ async function updateSong(e) {
 }
 
 async function populateSongs() {
-    const ul = document.getElementById('songbook-list-ul')
+    const ul = document.getElementById('songbook-list-ul');
     const datalist = document.getElementById('possible_inputs');
-    ul.innerHTML = '';
 
+    ul.innerHTML = '';
     songs.sort((a, b) => a.name.localeCompare(b.name));
 
     songs.forEach((song) => {
@@ -137,6 +156,7 @@ async function populateSongs() {
         li.innerHTML = song.name; //TODO add author
         li.addEventListener('click', function () {
             displaySong(song);
+            history.pushState(song, song.name, `?song=${song.name}`)
         });
         ul.append(li);
 
@@ -151,43 +171,27 @@ async function populateSongs() {
     return
 }
 
+function displaySongs(song_list) {
+    const ul = document.getElementById('songbook-list-ul');
+
+    ul.innerHTML = '';
+    song_list.sort((a, b) => a.name.localeCompare(b.name));
+
+    song_list.forEach((song) => {
+        const li = document.createElement('li');
+        li.innerHTML = song.name; //TODO add author
+        li.addEventListener('click', function () {
+            displaySong(song);
+            history.pushState(song, song.name, `?song=${song.name}`)
+        });
+        ul.append(li);
+    });
+}
+
 function displaySong(song) {
     document.getElementById('songbook-text').innerHTML = song.parseText()
     document.getElementById('songbook-author').innerHTML = song.author
     document.getElementById('songbook-name').innerHTML = song.name
-}
-
-// -------------------------------------- Backend --------------------------------------
-
-function displaySongs() {
-    const list = document.querySelector('#song-list');
-    list.innerHTML = '';
-    songbook._filteredSongs.forEach((song) => {
-        const option = document.createElement('option');
-        option.value = song.title
-        option.innerHTML = song.title
-        list.add(option);
-    })
-}
-
-function chooseNew(event) {
-    const chosenName = document.getElementById('song-list').value;
-    songbook._filteredSongs.forEach((song) => {
-        if (song.title == chosenName) {
-            chosenSong = song;
-            displaySong();
-            return;
-        }
-    });
-}
-
-
-function searchChange() {
-    let authorText = document.getElementById('author-input').value
-    let songText = document.getElementById('song-input').value
-
-    songbook.applyFilter(authorText, songText)
-    displaySongs()
 }
 
 function keyHandler(event) {
@@ -197,4 +201,33 @@ function keyHandler(event) {
         return
     }
 
+}
+
+// -------------------------------------- History --------------------------------------
+
+window.onpopstate = function (event) {
+    if (event.state) {
+        if (event.state.page) {
+            switch (event.state.page) {
+                case 'songbook':
+                    Loader.displaySongbook();
+                    break;
+                case 'chords':
+                    Loader.displayChords();
+                    break;
+                case 'editor':
+                    Loader.displayEditor();
+                    break;
+                case 'menu':
+                    Loader.displayMenu();
+                    break;
+            }
+        }
+        else {
+            const song = new Song(event.state.id, event.state.name, event.state.deleted,
+                event.state.public, event.state.createdAt, event.state.updatedAt,
+                event.state.author, event.state.text);
+            displaySong(song);
+        }
+    }
 }

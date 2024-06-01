@@ -1,0 +1,9 @@
+{
+  "name": "Projekt zpěvník",
+  "short_name": "Zpěvník",
+  "description": "A Progressive Web App for Zpěvník",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#d3d3d3"
+}

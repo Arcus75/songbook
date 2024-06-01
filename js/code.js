@@ -19,15 +19,15 @@ var Loader = null;
 var songs = [];
 var filteredSongs = [];
 
-// if ('serviceWorker' in navigator) {
-//     window.addEventListener('load', function () {
-//         navigator.serviceWorker.register('/serviceWorker.js').then(function (registration) {
-//             console.log('ServiceWorker registration successful with scope: ', registration.scope);
-//         }, function (err) {
-//             console.log('ServiceWorker registration failed: ', err);
-//         });
-//     });
-// }
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/js/serviceWorker.js').then(function (registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
 
 async function fillSite() {
     // if (navigator.onLine) {
@@ -59,7 +59,6 @@ async function siteLoaded() {
     Loader = new WebLoader();
     Loader.addListeners();
 
-    songs = await getSongsDb();
     populateSongs()
 
     addListeners()
@@ -67,19 +66,13 @@ async function siteLoaded() {
 }
 
 function addListeners() {
-    //document.getElementById('song-list').addEventListener('input', chooseNew);
-    //document.querySelector('#main-menu-btn').addEventListener('click', menuToggle);
-    //document.getElementById('author-input').addEventListener('input', searchChange);
-    //document.getElementById('autor-clear').addEventListener('click', clearAuthor);
-    //document.getElementById('song-input').addEventListener('input', searchChange);
-    //document.getElementById('song-clear').addEventListener('click', clearSong);
     document.addEventListener('keypress', keyHandler);
 
     document.getElementById('filter-input').addEventListener('input', filterChanged)
     document.getElementById('filter-clear').addEventListener('click', clearFilter)
 
     document.getElementById('new-song-btn').addEventListener('click', addSong)
-    document.getElementById('update-song-btn').addEventListener('click', updateSong)
+    // document.getElementById('update-song-btn').addEventListener('click', updateSong)
 }
 
 function menuToggle() {
@@ -99,7 +92,6 @@ function filterChanged() {
     filteredSongs = songs.filter((song) => song.name.toLowerCase().includes(filterValue));
 
     displaySongs(filteredSongs);
-
 }
 
 function clearFilter() {
@@ -117,9 +109,16 @@ async function addSong(e) {
     const interpret_in = document.getElementById('song-interpret');
 
     const name = name_in.value;
-    const text = text_in.value;
+    let text = text_in.value;
     let interpret = interpret_in.value;
 
+    if (!name || !text || !interpret) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Wrap text in <![CDATA[ and ]]>
+    text = `<![CDATA[${text}]]>`;
     // Get the id of the interpret
     let interpretId = await getInterpretDb(interpret);
     // If the interpret doesn't exist, create it and get the id
@@ -127,10 +126,12 @@ async function addSong(e) {
         interpretId = await createInterpretDb(interpret);
     }
 
-    createSongDb(name, text, interpretId);
+    await createSongDb(name, text, interpretId);
     name_in.value = '';
     text_in.value = '';
     interpret_in.value = '';
+
+    populateSongs();
 }
 
 async function updateSong(e) {
@@ -161,8 +162,11 @@ async function updateSong(e) {
 }
 
 async function populateSongs() {
+    songs = await getSongsDb();
+
     const ul = document.getElementById('songbook-list-ul');
     const datalist = document.getElementById('possible_inputs');
+    const filter = document.getElementById('filter-input').value = '';
 
     ul.innerHTML = '';
     songs.sort((a, b) => a.name.localeCompare(b.name));

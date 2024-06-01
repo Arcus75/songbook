@@ -2,9 +2,10 @@ import { SERVER_URL } from '../config.js';
 import Song from '../model/Song.js';
 
 /**
- * Fetches all songs from the database.
+ * Fetches all songs from the database and stores them in localStorage.
+ * If the fetch operation fails, it retrieves the songs from localStorage.
  *
- * @returns {Array<Song>} An array of Song objects if successful, undefined otherwise.
+ * @returns {Array<Song>} An array of Song objects if fetch operation is successful or songs exist in localStorage, an empty array otherwise.
  */
 export async function getSongsDb() {
     try {
@@ -17,9 +18,18 @@ export async function getSongsDb() {
             const attrs = songData.attributes;
             return new Song(songData.id, attrs.name, attrs.deleted, attrs.public, attrs.createdAt, attrs.updatedAt, attrs.interpret.data.attributes.name, attrs.text)
         });
+        // Store songs in localStorage
+        localStorage.setItem('songs', JSON.stringify(songs));
         return songs;
     } catch (error) {
         console.error('Error:', error);
+        // If fetch fails, try to get songs from localStorage
+        let storedSongs = JSON.parse(localStorage.getItem('songs')) || [];
+        // Parse songs from localStorage to recreate Song objects
+        storedSongs = storedSongs.map(songData => {
+            return new Song(songData.id, songData.name, songData.deleted, songData.public, songData.createdAt, songData.updatedAt, songData.interpret, songData.text)
+        });
+        return storedSongs;
     }
 }
 

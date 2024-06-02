@@ -7,18 +7,13 @@ import { createSongDb, updateSongDb, getSongsDb } from './class/SongDB.js';
 window.addEventListener("load", siteLoaded)
 var debug = false
 
-var data = [];
-var diplayData = [];
-var authors = new Set();
-var chosenSong = null;
-var chosenText = "";
-var viableSongbooks = ["Default_full.xml"];
-
 var Loader = null;
-
 var songs = [];
 var filteredSongs = [];
 
+/**
+ * Register service worker if supported by the browser.
+ */
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('/js/serviceWorker.js').then(function (registration) {
@@ -29,6 +24,9 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+/**
+ * Function to fill the site with content.
+ */
 async function fillSite() {
     // if (navigator.onLine) {
     //     son
@@ -53,6 +51,9 @@ async function fillSite() {
     }
 }
 
+/**
+ * Function to be called when the site is fully loaded.
+ */
 async function siteLoaded() {
     await fillSite();
 
@@ -65,6 +66,9 @@ async function siteLoaded() {
     history.pushState({ page: 'menu' }, '', '?page=menu')
 }
 
+/**
+ * Add event listeners to elements.
+ */
 function addListeners() {
     document.addEventListener('keypress', keyHandler);
 
@@ -75,6 +79,9 @@ function addListeners() {
     // document.getElementById('update-song-btn').addEventListener('click', updateSong)
 }
 
+/**
+ * Toggle the visibility of the menu, button, and content elements.
+ */
 function menuToggle() {
     const menu = document.getElementById('div-songbook-menu')
     const button = document.getElementById('div-songbook-menu-icon');
@@ -87,6 +94,9 @@ function menuToggle() {
     content.classList.toggle('open');
 }
 
+/**
+ * Filter songs based on the input value.
+ */
 function filterChanged() {
     let filterValue = document.getElementById('filter-input').value.toLowerCase();
     filteredSongs = songs.filter((song) => song.name.toLowerCase().includes(filterValue));
@@ -94,6 +104,9 @@ function filterChanged() {
     displaySongs(filteredSongs);
 }
 
+/**
+ * Clear the filter input and update the song list.
+ */
 function clearFilter() {
     let filter = document.getElementById('filter-input');
     filter.value = '';
@@ -102,6 +115,10 @@ function clearFilter() {
 
 // -------------------------------------- Songs --------------------------------------
 
+/**
+ * Add a new song to the database.
+ * @param {Event} e - The event object.
+ */
 async function addSong(e) {
     e.preventDefault();
     const name_in = document.getElementById('song-name')
@@ -134,6 +151,10 @@ async function addSong(e) {
     populateSongs();
 }
 
+/**
+ * Update a song in the database.
+ * @param {Event} e - The event object.
+ */
 async function updateSong(e) {
     e.preventDefault();
 
@@ -161,6 +182,9 @@ async function updateSong(e) {
     interpret_in.value = '';
 }
 
+/**
+ * Populate the song list with songs from the database.
+ */
 async function populateSongs() {
     songs = await getSongsDb();
 
@@ -191,6 +215,10 @@ async function populateSongs() {
     return
 }
 
+/**
+ * Display the song list.
+ * @param {Array} song_list - The list of songs to display.
+ */
 function displaySongs(song_list) {
     const ul = document.getElementById('songbook-list-ul');
 
@@ -208,12 +236,21 @@ function displaySongs(song_list) {
     });
 }
 
+/**
+ * Display a song.
+ * @param {Song} song - The song to display.
+ */
 function displaySong(song) {
     document.getElementById('songbook-text').innerHTML = song.parseText()
     document.getElementById('songbook-author').innerHTML = song.author
     document.getElementById('songbook-name').innerHTML = song.name
 }
 
+/**
+ * Handle key events.
+ * @param {Event} event - The event object.
+ * @returns
+ */
 function keyHandler(event) {
 
     if (event.key === "Enter") {
@@ -225,6 +262,9 @@ function keyHandler(event) {
 
 // -------------------------------------- History --------------------------------------
 
+/**
+ * Handle the back button.
+ */
 window.onpopstate = function (event) {
     if (event.state) {
         if (event.state.page) {
